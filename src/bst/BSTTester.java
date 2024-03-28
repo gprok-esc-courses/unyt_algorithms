@@ -14,6 +14,8 @@ public class BSTTester {
         bst.add(170);
         bst.add(235);
         bst.add(246);
+        bst.add(4);
+        System.out.println("H: " + bst.height(bst.getRoot()));
 
         bst.remove(80);
 

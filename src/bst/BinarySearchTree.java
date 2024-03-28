@@ -194,7 +194,16 @@ public class BinarySearchTree {
     }
 
     // EXERCISE
-    public int height() {
-        return 0;
+    public int height(TreeNode node) {
+        int h = 0;
+        if(node == null) {
+            return 0;
+        }
+        else {
+            int hLeft = height(node.getLeft());
+            int hRight = height(node.getRight());
+            h = Math.max(hLeft, hRight) + 1;
+            return h;
+        }
     }
 }
