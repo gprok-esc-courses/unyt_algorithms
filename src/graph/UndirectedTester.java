@@ -12,6 +12,7 @@ public class UndirectedTester {
         graph.addVertex("G");
         graph.addVertex("H");
         graph.addVertex("I");
+        graph.addVertex("K");
         graph.addEdge("A", "B");
         graph.addEdge("A", "D");
         graph.addEdge("A", "H");
@@ -25,5 +26,8 @@ public class UndirectedTester {
         graph.addEdge("F", "I");
         graph.addEdge("G", "I");
         graph.display();
+
+        graph.bfs("A");
+        graph.printShortestPath("A", "G");
     }
 }

@@ -7,6 +7,11 @@ public class Vertex {
 
     private ArrayList<Edge> edges;
 
+    // These variables are for BFS
+    private String color;
+    private int distance;
+    private Vertex parent;
+
     public Vertex(String value) {
         this.value = value;
         this.edges = new ArrayList<>();
@@ -22,5 +27,29 @@ public class Vertex {
 
     public ArrayList<Edge> getEdges() {
         return edges;
+    }
+
+    public String getColor() {
+        return color;
+    }
+
+    public void setColor(String color) {
+        this.color = color;
+    }
+
+    public int getDistance() {
+        return distance;
+    }
+
+    public void setDistance(int distance) {
+        this.distance = distance;
+    }
+
+    public Vertex getParent() {
+        return parent;
+    }
+
+    public void setParent(Vertex parent) {
+        this.parent = parent;
     }
 }

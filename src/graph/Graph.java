@@ -1,7 +1,6 @@
 package graph;
 
-import java.util.ArrayList;
-import java.util.HashMap;
+import java.util.*;
 
 public class Graph {
     private boolean directed;
@@ -61,5 +60,48 @@ public class Graph {
             }
             System.out.println();
         }
+    }
+
+    public void bfsInitialize() {
+        for(Vertex vertex : vertices.values()) {
+            vertex.setColor("white");
+            vertex.setParent(null);
+            vertex.setDistance(Integer.MAX_VALUE);
+        }
+    }
+
+    public void bfs(String start) {
+        bfsInitialize();
+        Vertex startingVertex = vertices.get(start);
+        Queue<Vertex> queue = new LinkedList<>();
+        startingVertex.setDistance(0);
+        startingVertex.setColor("gray");
+        queue.add(startingVertex);
+        while(!queue.isEmpty()) {
+            Vertex current = queue.remove();
+            ArrayList<Edge> edges = current.getEdges();
+            for(Edge edge : edges) {
+                if(edge.getDestination().getColor().equals("white")) {
+                    edge.getDestination().setColor("gray");
+                    edge.getDestination().setDistance(current.getDistance() + 1);
+                    edge.getDestination().setParent(current);
+                    queue.add(edge.getDestination());
+                }
+            }
+            current.setColor("black");
+        }
+    }
+
+    public void printShortestPath(String start, String destination) {
+        Vertex current = vertices.get(destination);
+        Vertex starting = vertices.get(start);
+        if(current.getParent() == null && current != starting) {
+            System.out.println("No path from " + start + " to " + destination);
+            return;
+        }
+        if(current.getParent() != null) {
+            printShortestPath(start, current.getParent().getValue());
+        }
+        System.out.println(destination);
     }
 }
