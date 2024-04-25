@@ -104,4 +104,28 @@ public class Graph {
         }
         System.out.println(destination);
     }
+
+
+    public void relax(Vertex u, Vertex v, double w) {
+
+    }
+
+    public void initializeSingleSource(Vertex s) {
+
+    }
+
+    public ArrayList<Vertex> getVerticesList() {
+        ArrayList<Vertex> verticesList = (ArrayList<Vertex>) vertices.values();
+        return verticesList;
+    }
+
+    public void dijkstra(String start) {
+        initializeSingleSource(vertices.get(start));
+        ArrayList<Vertex> Q = getVerticesList();
+        while(Q.size() > 0) {
+            // sort and extract min (u)
+            // for each edge of u (v) with weight (w)
+            //      relax(u, v, w)
+        }
+    }
 }
