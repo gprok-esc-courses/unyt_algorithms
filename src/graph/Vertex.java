@@ -9,7 +9,7 @@ public class Vertex {
 
     // These variables are for BFS
     private String color;
-    private int distance;
+    private double distance;
     private Vertex parent;
 
     public Vertex(String value) {
@@ -37,11 +37,11 @@ public class Vertex {
         this.color = color;
     }
 
-    public int getDistance() {
+    public double getDistance() {
         return distance;
     }
 
-    public void setDistance(int distance) {
+    public void setDistance(double distance) {
         this.distance = distance;
     }
 
